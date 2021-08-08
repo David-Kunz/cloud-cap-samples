@@ -5,7 +5,7 @@ To run:
 cd bookshop
 cds run --in-memory
 ```
-then got to
+then go to
 ```
 http://localhost:4004/app
 ```

@@ -1,7 +1,7 @@
 <h4> {{ objectEntity.name }} </h4>
 <ul>
   {{#each (getViewableElements objectEntity)}}
-    <li><b>{{ this.name }}:</b>
+  <li><b>{{ this.name }}:</b>
     ${ selectedItem.{{ this.name }} }</li>
   {{/each}}
 </ul>
