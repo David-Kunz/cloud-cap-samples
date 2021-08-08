@@ -15,11 +15,6 @@ class CatalogService extends cds.ApplicationService { init(){
     else return req.error (409,`${amount} exceeds stock for book #${book}`)
   })
 
-  // Add some discount for overstocked books
-  this.after ('READ','ListOfBooks', each => {
-    if (each.stock > 111) each.title += ` -- 11% discount!`
-  })
-
   return super.init()
 }}
 

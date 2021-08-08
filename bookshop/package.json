@@ -6,6 +6,7 @@
     "@capire/common": "*",
     "@sap/cds": "^5.0.4",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
     "passport": "0.4.1"
   },
   "scripts": {
