@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> {{ listEntity.name }} </title>
+    <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .hovering tr:hover td { background: #f9f9f9; cursor: pointer; }
+    </style>
+</head>
+
+<body class="small-container", style="margin-top: 70px;">
+<div id='app'>
+
+    <h1> ${ document.title } </h1>
+
+    <input type="text" placeholder="Search..." @input="search">
+
+    {{> list }}
+
+    <div v-if="selectedItem">
+
+         <template v-if="loading">
+        </template>
+        <template v-else>
+
+          {{> object }}
+
+        </template>
+
+
+    </div>
+    <div v-else>
+        ( click on a row to see details... )
+    </div>
+
+</div>
+</body>
+
+<script src="views/app.js"></script>
+<script>
+bootstrap({path:'{{path}}', listEntityName:'{{listEntity.name}}', objectEntityName:'{{objectEntity.name}}', objectEntityProperties:'{{ joinByComma (getViewableElements objectEntity) }}'})
+</script>
+</html>

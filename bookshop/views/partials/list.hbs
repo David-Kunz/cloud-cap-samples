@@ -1,0 +1,12 @@
+<table id='items' class="hovering">
+    <thead>
+      {{#each (getViewableElements listEntity)}}
+        <th> {{ this.name }} </th>
+      {{/each}}
+    </thead>
+    <tr v-for="item in list" v-bind:id="item.ID" v-on:click="inspect">
+        {{#each (getViewableElements listEntity)}}
+          <td>${ item.{{ this.name }} }</td>
+        {{/each}}
+    </tr>
+</table>
