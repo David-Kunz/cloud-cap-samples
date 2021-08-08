@@ -7,40 +7,44 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <style>
-        .hovering tr:hover td { background: #f9f9f9; cursor: pointer; }
+        .hovering tr:hover td {
+            background: #f9f9f9;
+            cursor: pointer;
+        }
     </style>
 </head>
 
-<body class="small-container", style="margin-top: 70px;">
-<div id='app'>
+<body class="small-container" , style="margin-top: 70px;">
+    <div id='app'>
 
-    <h1> ${ document.title } </h1>
+        <h1> ${ document.title } </h1>
 
-    <input type="text" placeholder="Search..." @input="search">
+        <input type="text" placeholder="Search..." @input="search">
 
-    {{> list }}
+        {{> list }}
 
-    <div v-if="selectedItem">
+        <div v-if="selectedItem">
 
-         <template v-if="loading">
-        </template>
-        <template v-else>
+            <template v-if="loading">
+            </template>
+            <template v-else>
 
-          {{> object }}
+                {{> object }}
 
-        </template>
+            </template>
 
+
+        </div>
+        <div v-else>
+            ( click on a row to see details... )
+        </div>
 
     </div>
-    <div v-else>
-        ( click on a row to see details... )
-    </div>
-
-</div>
 </body>
 
 <script src="views/app.js"></script>
 <script>
-bootstrap({path:'{{path}}', listEntityName:'{{listEntity.name}}', objectEntityName:'{{objectEntity.name}}', objectEntityProperties:'{{ joinByComma (getViewableElements objectEntity) }}'})
+    bootstrap({ path: '{{path}}', listEntityName: '{{listEntity.name}}', objectEntityName: '{{objectEntity.name}}', objectEntityProperties: '{{ joinByComma (getViewableElements objectEntity) }}' })
 </script>
+
 </html>
